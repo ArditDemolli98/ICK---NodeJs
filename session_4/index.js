@@ -36,4 +36,9 @@ while(i < 10){
     i++
 }
 
-
+// Do while loop
+let e = 0;
+do{
+    console.log("Ardos");
+    i++
+} while (e < 10);
