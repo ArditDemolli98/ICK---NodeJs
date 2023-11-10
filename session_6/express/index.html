@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express</title>
+</head>
+<body>
+    <h1>Hello from express</h1>
+    <input type="text" id = "shortName">
+    <button id = "clickMe">Press me</button>
+    <h2 id = "fullName" ></h2>
+    <h2 id = "age" ></h2>
+    <img src="" alt="">
+    
+    <script>
+        document.querySelector("#clickMe").addEventListener("click", makeReq);
+
+async function makeReq() {
+  const shortName = document.querySelector("#shortName").value;
+  const res = await fetch(`/api/${shortName}`);
+  const data = await res.json();
+
+  console.log(data);
+  document.querySelector("#fullName").textContent = data.fullName;
+  document.querySelector("#age").textContent = data.age;
+}
+    </script>
+</body>
+</html>
