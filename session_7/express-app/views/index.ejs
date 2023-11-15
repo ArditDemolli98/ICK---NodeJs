@@ -16,7 +16,27 @@
         </nav>
     </header>
     <h1>This is the homepage</h1>
-    <img src="images/iron-man.avif" alt="iron mani" >
+    
+
+    <%if(10<9) { %>
+        <h1>Allo</h1>
+    <% } %>
+
+    <% const variabla = "dicka"%>
+    <%function someFunction(){
+        return 0;
+    } 
+    const allo = someFunction();
+    %>
+
+    <h2><%= someFunction() %></h2>
+
+    <h1><%= variabla %></h1>
+
+    <%for(let i = 0; i < 10; i++){ %>
+        <span> <%= i %> </span>
+        <br>
+    <% } %>
     
 </body>
 </html>

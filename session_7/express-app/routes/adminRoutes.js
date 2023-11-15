@@ -3,6 +3,8 @@ const router = express.Router();
 
 const path = require("path");
 
+const products = [];
+
 router.get("/", (req, res)=>{
     res.write("<h1>admin route</h1>")
 })
@@ -12,8 +14,9 @@ router.get("/add-product", (req, res)=>{
 })
 
 router.post("/product", (req, res)=>{
-    console.log(req.body);
+    products.push(req.body.product);
     res.redirect("/admin/add-product")
 })
 
-module.exports = router;
+exports.routes = router;
+exports.products = products;
