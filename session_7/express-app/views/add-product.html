@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Add Product</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <header>
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/add-product">Add Product</a></li>
+                <li><a href="/admin/add-product">Add Product</a></li>
             </ul>
         </nav>
     </header>
-    <form action="/product" method="post">
+    <form action="/admin/product" method="post">
         <label for="product">Product:</label>
         <input type="text" name="product" id="product">
         <button>Add +</button>

@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 
+const adminRoutes = require("./routes/adminRoutes");
+
 const path = require("path");
 const bodyParser = require("body-parser");
 
@@ -17,6 +19,8 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.get("/", (req, res)=>{
     res.sendFile(path.join(__dirname, "views","index.html"));
 })
+
+app.use("/admin", adminRoutes);
 
 app.use((req, res)=>{
     res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
