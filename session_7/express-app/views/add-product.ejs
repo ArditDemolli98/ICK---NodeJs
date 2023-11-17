@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home</title>
+        <title>Add product</title>
         <link rel="stylesheet" href="/css/style.css">
     </head>
 <body>
@@ -20,18 +20,20 @@
             </ul>
         </nav>
     </header>
-    <h1>This is the homepage</h1>
-    <main>
-        <section class="products-list">
-            <%if(products.length > 0) { %>
-                <% for(let i = 0; i < products.length; i++) {%>
-                <article class="product">
-                    <p class="product-name"><%= products[i].productName %></p>
-                    <span class="product-price"><%= products[i].productPrice %></span>
-                </article>
-                <% } %>
-            <% } %>
-        </section>
-    </main>
+    <div class="form-container">
+        <form class="product-form" action="/admin/product" method="post">
+        <div class="label-input">
+            <label for="product">Product:</label>
+            <input type="text" name="productName" id="product">
+        </div>
+        <div class="label-input">
+            <label for="price">Price:</label>
+            <input type="number" name="productPrice" id="price">
+        </div>
+        <button type="submit" class="product-form-btn">Add +</button>
+    </form>
+    </div>
+
+    
 </body>
 </html>

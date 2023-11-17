@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+html{
+    font-family: 'Open Sans', sans-serif;
+}
 * {
     margin: 0;
     padding: 0;
@@ -5,14 +10,22 @@
 }
 
 body {
-    background-color: antiquewhite;
+    background-color: rgb(250, 248, 247);
 }
 
 nav ul {
     display: flex;
     width: 100%;
-    justify-content: center;
+    padding: 0 15px;
+    justify-content: space-between;
+    align-items: center;
     list-style: none;
+    background-color: #333;
+    height: 70px;
+}
+
+.left-nav{
+    display: flex;
 }
 
 li {
@@ -20,16 +33,74 @@ li {
     margin: 0 10px;
 }
 
+li a{
+    text-decoration: none;
+    color: #eee;
+}
+
 h1 {
     text-align: center;
 }
 
-form {
+.form-container{
     display: flex;
-    width: 100;
-    align-items: center;
+    justify-content: center;
+}
+
+.product-form {
+    display: flex;
+    width: 300px;
+    align-items:center;
     justify-content: center;
     flex-direction: column;
     gap: 10px;
+    font-size: 20px;
+    padding:10px 0;
+}
+
+.product-form-btn {
+    font-size:16px;
+    font-family: inherit;
+    padding: 3px 10px;
+    background-color: #444;
+    border: 0.5px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    align-self: center;
+    color: rgb(191, 246, 110);
+}
+
+.label-input{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.label-input input{
+    width:150px;
+    height: 25px;
+}
+
+.active{
+    color: rgb(228, 194, 0);
+}
+
+.products-list {
+    padding: 30px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.product{
+    border: 0.5px solid blue;
+    padding: 10px;
+}
+
+.product-name{
     font-size: 25px;
+}
+
+.product-price{
+    font-size: 18px;
 }

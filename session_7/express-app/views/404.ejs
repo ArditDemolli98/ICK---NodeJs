@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home</title>
+        <title>Page not found</title>
         <link rel="stylesheet" href="/css/style.css">
     </head>
 <body>
@@ -20,18 +20,6 @@
             </ul>
         </nav>
     </header>
-    <h1>This is the homepage</h1>
-    <main>
-        <section class="products-list">
-            <%if(products.length > 0) { %>
-                <% for(let i = 0; i < products.length; i++) {%>
-                <article class="product">
-                    <p class="product-name"><%= products[i].productName %></p>
-                    <span class="product-price"><%= products[i].productPrice %></span>
-                </article>
-                <% } %>
-            <% } %>
-        </section>
-    </main>
+    <h1>Page not found!</h1>
 </body>
 </html>
