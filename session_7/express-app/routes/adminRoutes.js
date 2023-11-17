@@ -10,7 +10,7 @@ router.get("/", (req, res)=>{
 })
 
 router.get("/add-product", (req, res)=>{
-    res.sendFile(path.join(__dirname, "..", "views","add-product.html"));
+    res.render("add-product");
 })
 
 router.post("/product", (req, res)=>{
