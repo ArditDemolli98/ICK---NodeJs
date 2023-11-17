@@ -1,34 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home</title>
-        <link rel="stylesheet" href="/css/style.css">
-    </head>
+    <%- include("./partials/head.ejs") %>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <div class="left-nav">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                </div>
-                <div class="right-nav">
-                    <li><a href="/admin/add-product">Add Product</a></li>
-                </div>
-            </ul>
-        </nav>
-    </header>
-    <h1>This is the homepage</h1>
+    <%- include("./partials/navigation.ejs") %>
+    <h1><%= title %></h1>
     <main>
         <section class="products-list">
-            
+            <% for(let i = 0; i < products.length; i++) { %>
                 <article class="product">
-                    <p class="product-name">Produkti</p>
-                    <span class="product-price">Cmimi</span>
+                    <p class="product-name"><%= products[i].productName %></p>
+                    <span class="product-price"><%= products[i].productPrice %></span>
                 </article>
+            <% } %>
         </section>
     </main>
+    <!-- EJS Syntax -->
 </body>
 </html>
