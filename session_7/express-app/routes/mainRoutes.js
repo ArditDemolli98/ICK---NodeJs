@@ -4,8 +4,6 @@ const mainController = require("../controllers/mainController");
 
 router.get("/", mainController.getHomeView);
 
-router.get("/about", (req, res)=>{
-    res.render("about", {title: "About"})
-})
+router.get("/about", mainController.getAboutView);
 
 module.exports = router;

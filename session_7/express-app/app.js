@@ -16,7 +16,7 @@ app.set("view engine", "ejs");
 
 app.use("/", mainRoutes)
 
-app.use("/admin", adminRoutes.routes);
+app.use("/admin", adminRoutes);
 
 app.use((req, res)=>{
     res.status(404).render("404", {title: "Page not found"});
