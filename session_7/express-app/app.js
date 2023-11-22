@@ -10,7 +10,7 @@ const bodyParser = require("body-parser");
 
 const PORT = 8000;
 
-mongoose.connect("mongodb+srv://arditdemolli98:ardos@cluster0.lpzt4xk.mongodb.net/")
+mongoose.connect("Stringu qe e merrni nga MongoDB atlas le te vendoset ketu")
 .then(result =>{
     console.log("Connected to the database");
     app.listen(PORT, (error) =>{
