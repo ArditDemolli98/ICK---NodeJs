@@ -9,8 +9,9 @@
         <section class="products-list">
             <% for(let i = 0; i < products.length; i++) { %>
                 <article class="product">
-                    <p class="product-name"><%= products[i].productName %></p>
-                    <span class="product-price"><%= products[i].productPrice %></span>
+                    <p class="product-name"><%= products[i].name %></p>
+                    <span class="product-price"><%= products[i].price %></span>
+                    <img src="<%=products[i].imageUrl %>" alt="">
                 </article>
             <% } %>
         </section>
