@@ -1,15 +1,20 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-<%- include("./partials/head.ejs") %>
+    <%- include("./partials/head.ejs") %>
 </head>
 <body>
     <%- include("./partials/navigation.ejs") %>
     <h1><%= title %></h1>
     <main>
         <section class="products-list">
+
             <% for(let i = 0; i < products.length; i++) { %>
                 <article class="product">
-                    <p class="product-name"><%= products[i].name %></p>
+                    <img width="200px" src="<%= products[i].imageURL %>" >
+                     <p class="product-name"><%= products[i].name %></p>
+                     <p class="category"><%=products[i].category %></p>
+                     <p class="description"><%= products[i].description %></p>
                     <span class="product-price"><%= products[i].price %></span>
                 </article>
             <% } %>

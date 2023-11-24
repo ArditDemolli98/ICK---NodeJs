@@ -1,23 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include("./partials/head.ejs") %>
+<head>
+    <%- include("./partials/head.ejs")  %>
 </head>
 <body>
-    <%- include("./partials/navigation.ejs") %>
+    <%- include("./partials/navigation.ejs")  %>
     <div class="form-container">
         <form class="product-form" action="/admin/product" method="post">
-        <div class="label-input">
-            <label for="product">Product:</label>
-            <input type="text" name="productName" id="product">
-        </div>
-        <div class="label-input">
-            <label for="price">Price:</label>
-            <input type="number" name="productPrice" id="price">
-        </div>
-        <button type="submit" class="product-form-btn">Add +</button>
-    </form>
+            <div class="label-input">
+                <label for="product">Product:</label>
+                <input type="text" name="productName" id="product">
+            </div>
+            <div class="label-input">
+                <label for="price">Price:</label>
+                <input type="number" name="productPrice" id="price">
+            </div>
+            <div class="label-input">
+                <label for="description">Description:</label>
+                <textarea name="productDescription" id="description" ></textarea>
+               
+            </div>
+            <div class="label-input">
+                <label for="category">Category:</label>
+                <input type="text" name="productCategory" id="category">
+            </div>
+            <div class="label-input">
+                <label for="imageURL">Image URL</label>
+                <input type="text" name="productImageURL" id="imageURL">
+                <img src="" alt="">
+            </div>
+            <button type="submit" class="product-form-btn">Add +</button>
+        </form>
     </div>
-
-    
 </body>
 </html>
