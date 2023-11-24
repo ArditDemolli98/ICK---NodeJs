@@ -31,12 +31,23 @@ module.exports = {
         .catch(err => console.log(err)) 
     },
 
+    getEditProductView: (req, res) =>{
+        const prodId = req.params.id;
+        
+        Product.findById(prodId)
+        .then(product =>{
+            res.render("edit-product", {title: "Edit product", product})
+        })
+        .catch(err => console.log(err))
+    },
+
     deleteProduct: (req, res) =>{
         const prodId = req.body.productId;
         Product.findByIdAndDelete(prodId)
         .then(result => {
             res.redirect("/")
         })
+        .catch(err => console.log(err))
     }
 
 }
