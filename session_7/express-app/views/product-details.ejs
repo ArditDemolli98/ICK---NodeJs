@@ -14,6 +14,10 @@
                      <p class="category"><%= product.category %></p>
                      <p class="description"><%= product.description %></p>
                     <span class="product-price"><%= product.price %></span>
+                    <form action="/admin/delete-product" method="post">
+                        <input  type="hidden" value="<%= product._id %>" name="productId">
+                        <button>Delete</button>
+                    </form>
                 </article>
         </section>
     </main>

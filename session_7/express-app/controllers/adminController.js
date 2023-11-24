@@ -28,8 +28,15 @@ module.exports = {
             console.log(result);
             res.redirect("/admin/add-product");
         })
-        .catch(err => console.log(err))
-       
-        
+        .catch(err => console.log(err)) 
+    },
+
+    deleteProduct: (req, res) =>{
+        const prodId = req.body.productId;
+        Product.findByIdAndDelete(prodId)
+        .then(result => {
+            res.redirect("/")
+        })
     }
+
 }
