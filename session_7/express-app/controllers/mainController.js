@@ -9,8 +9,14 @@ module.exports = {
                             products: result});
         })
         .catch(err => console.log(err))
+    },
 
-        
+    getProductDetails: (req, res)=>{
+        const prodId = req.params.id;
+        Product.findById(prodId)
+        .then(product => {
+            res.render("product-details", { title: "Product details", product})
+        })
     },
 
     getAboutView: (req, res)=>{

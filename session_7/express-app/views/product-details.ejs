@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head.ejs") %>
+</head>
+<body>
+    <%- include("./partials/navigation.ejs") %>
+    <h1><%= title %></h1>
+    <main>
+        <section class="products-list">
+                <article class="product">
+                    <img width="200px" src="<%= product.imageURL%>" >
+                     <p class="product-name"><%= product.name %></p>
+                     <p class="category"><%= product.category %></p>
+                     <p class="description"><%= product.description %></p>
+                    <span class="product-price"><%= product.price %></span>
+                </article>
+        </section>
+    </main>
+    <!-- EJS Syntax -->
+</body>
+</html>

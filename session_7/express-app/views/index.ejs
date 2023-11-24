@@ -16,6 +16,7 @@
                      <p class="category"><%=products[i].category %></p>
                      <p class="description"><%= products[i].description %></p>
                     <span class="product-price"><%= products[i].price %></span>
+                    <a href="/product-details/<%= products[i]._id %>">See details</a>
                 </article>
             <% } %>
         </section>
