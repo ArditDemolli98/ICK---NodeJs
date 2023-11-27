@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Media</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="nav">
+      <div id="nav-left">
+        <img id="nav-logo" src="<%= logo.image %>" />
+      </div>
+      <div id="nav-right">
+        <input type="text" placeholder="Search" />
+        <button>+ Create</button>
+        <img src="<%= myUser.profilePicture %>" />
+      </div>
+    </div>
+    <div id="left">
+      <div class="profile-info">
+        <img src="<%= myUser.profilePicture %>" />
+        <div class="profile-info-right">
+          <h3><%= myUser.fullName %></h3>
+          <h4>@<%= myUser.username %></h4>
+        </div>
+      </div>
+      <div class="list">
+        <div class="list-element">
+          <span class="list-element-logo">H</span>
+          <label class="list-element-text">Home</label>
+        </div>
+        <div class="list-element">
+          <span class="list-element-logo">F</span>
+          <label class="list-element-text">People</label>
+        </div>
+        <div class="list-element">
+          <span class="list-element-logo">P</span>
+          <label class="list-element-text">Photos</label>
+        </div>
+        <div class="list-element">
+          <span class="list-element-logo">N</span>
+          <label class="list-element-text">News Feed</label>
+        </div>
+        <div class="list-element">
+          <span class="list-element-logo">P</span>
+          <label class="list-element-text">Profile</label>
+        </div>
+        <div class="list-element">
+          <span class="list-element-logo">S</span>
+          <label class="list-element-text">Settings</label>
+        </div>
+      </div>
+      <div class="invitations-container">
+        <div class="invitations-top">
+          <label>INVITATIONS</label>
+          <span><%= invitations.length %></span>
+        </div>
+        <div class="invitations">
+          <% for(let i =0; i < invitations.length; i++) {%>
+          <div class="invitation">
+            <img src="<%= invitations[i].image %>" />
+            <div class="invitation-bottom">
+              <button class="invitation-accept">Accept Invitation</button>
+              <button class="invitation-decline">X</button>
+            </div>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <div id="center">
+      <div class="stories">
+        <% for(let i = 0; i < stories.length; i++) { %>
+        <div class="story" style="background-image: url('<%= stories[i].thumbnail %>')">
+          <label><%= stories[i].user %></label>
+        </div>
+        <% } %>
+      </div>
+      <div class="new-post-form">
+        <img src="<%= myUser.profilePicture %>" />
+        <input type="text" placeholder="What's new, <%= myUser.fullName.split(" ")[0] %>?" />
+        <button>Post it!</button>
+      </div>
+      <% for(let i = 0; i < posts.length; i++) { %>
+      <div class="post">
+        <div class="post-top">
+          <img src="<%= posts[i].image %>" />
+          <div class="post-info">
+            <label class="post-poster"><%= posts[i].name %></label>
+            <label class="post-time"><%= posts[i].time %></label>
+          </div>
+          <button class="post-more">...</button>
+        </div>
+        <div class="post-bottom">
+          <div class="post-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+            tempora cupiditate sunt quibusdam corrupti quam ut placeat quis,
+            molestiae velit autem obcaecati, rerum id alias quaerat
+            necessitatibus aliquam facilis aperiam.
+            lorem*1000
+          </div>
+          <div class="post-images">
+
+            <div style="background-image: url('<%= posts[i].pictures[0] %>')"></div>
+            <div style="background-image: url('<%= posts[i].pictures[1] %>')"></div>
+          </div>
+        </div>
+      </div>
+      <% } %>
+    </div>
+    <div id="right">
+      <div class="requests">
+        <div class="requests-top">
+          <label>REQUESTS</label>
+          <span><%= requests.length %></span>
+        </div>
+        <div class="requests-bottom">
+          <% for(let i = 0; i < requests.length; i++) {%>
+          <div class="request">
+            <div class="request-top">
+              <img src="<%= requests[i].image %>" />
+              <label><strong><%= requests[i].name %></strong> wants to follow you! </label>
+            </div>
+            <div class="request-bottom">
+              <button>Accept</button>
+              <button class="decline">Decline</button>
+            </div>
+          </div>
+          <% }%>
+        </div>
+      </div>
+      <div class="contacts">
+        <div class="contacts-top">
+          <label>Contacts</label>
+          <span><%= contacts.length %></span>
+        </div>
+        <div class="contacts-bottom">
+          <% for(let i = 0; i < contacts.length; i++) { %>
+          <div class="contact">
+            <img src="<%= contacts[i].image %>" />
+            <label><%= contacts[i].name %></label>
+            <span>...</span>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
