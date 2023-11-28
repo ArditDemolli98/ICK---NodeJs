@@ -4,7 +4,6 @@ module.exports = {
     getHomeView: (req, res)=>{
         Product.find()
         .then(result => {
-            console.log(result);
             res.render("index", {title: "Home",
                             products: result});
         })
@@ -22,5 +21,4 @@ module.exports = {
     getAboutView: (req, res)=>{
         res.render("about", {title: "About"})
     }
-
 }

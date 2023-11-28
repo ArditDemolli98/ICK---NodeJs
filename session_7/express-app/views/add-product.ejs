@@ -9,27 +9,26 @@
         <form class="product-form" action="/admin/product" method="post">
             <div class="label-input">
                 <label for="product">Product:</label>
-                <input type="text" name="productName" id="product">
+                <input type="text" name="productName" id="product" required>
             </div>
             <div class="label-input">
                 <label for="price">Price:</label>
-                <input type="number" name="productPrice" id="price">
+                <input type="number" name="productPrice" id="price" required>
             </div>
             <div class="label-input">
                 <label for="description">Description:</label>
-                <textarea name="productDescription" id="description" ></textarea>
-               
+                <textarea name="productDescription" id="description" cols="20" rows="8" required></textarea>
             </div>
             <div class="label-input">
                 <label for="category">Category:</label>
-                <input type="text" name="productCategory" id="category">
+                <input type="text" name="productCategory" id="category" required>
             </div>
             <div class="label-input">
-                <label for="imageURL">Image URL</label>
-                <input type="text" anme="productImageURL" id="imageURL">
-                <img src="" alt="">
+                <label for="imageURL">Image URL:</label>
+                <input type="text" name="productImageURL" id="imageURL" required>
+                <img src="" alt="" style="max-width: 100%; margin-top: 10px;">
             </div>
-            <button type="submit" class="product-form-btn">Add +</button>
+            <button type="submit" class="product-form-btn">Add Product</button>
         </form>
     </div>
 </body>

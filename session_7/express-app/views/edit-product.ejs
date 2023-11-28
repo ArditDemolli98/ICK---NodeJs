@@ -6,7 +6,7 @@
 <body>
     <%- include("./partials/navigation.ejs")  %>
     <div class="form-container">
-        <form class="product-form" action="/admin/product" method="post">
+        <form class="product-form" action="/admin/edit-product" method="post">
             <div class="label-input">
                 <label for="product">Product:</label>
                 <input type="text" name="productName" id="product" value="<%= product.name %>">
@@ -17,19 +17,18 @@
             </div>
             <div class="label-input">
                 <label for="description">Description:</label>
-                <textarea name="productDescription" id="description" ><%= product.description %></textarea>
-               
+                <textarea name="productDescription" id="description"cols="20" rows="8" ><%= product.description %></textarea> 
             </div>
             <div class="label-input">
                 <label for="category">Category:</label>
                 <input type="text" name="productCategory" id="category" value="<%= product.category %>">
             </div>
             <div class="label-input">
-                <label for="imageURL">Image URL</label>
-                <input type="text" anme="productImageURL" id="imageURL" value="<%= product.imageURL %>">
-                <img src="" alt="">
+                <label for="imageURL">Image URL:</label>
+                <input type="text" name="productImageURL" id="imageURL" value="<%= product.imageURL %>">
             </div>
-            <button type="submit" class="product-form-btn">Add +</button>
+            <input type="hidden" name="productId" value="<%= product._id %>">
+            <button type="submit" class="product-form-btn">Update Product</button>
         </form>
     </div>
 </body>

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
     <%- include("./partials/head.ejs") %>
 </head>
@@ -7,21 +6,18 @@
     <%- include("./partials/navigation.ejs") %>
     <h1><%= title %></h1>
     <main>
-        <section class="products-list">
-                <article class="product">
-                    <img width="200px" src="<%= product.imageURL%>" >
-                     <p class="product-name"><%= product.name %></p>
-                     <p class="category"><%= product.category %></p>
-                     <p class="description"><%= product.description %></p>
-                    <span class="product-price"><%= product.price %></span>
-                    <form action="/admin/delete-product" method="post">
-                        <input  type="hidden" value="<%= product._id %>" name="productId">
-                        <button>Delete</button>
-                    </form>
-                    <a href="/admin/edit-product/<%= product._id %>">Edit</a>
-                </article>
-        </section>
+        <article class="product-details">
+            <img src="<%= product.imageURL %>" alt="<%= product.name %>">
+            <p class="product-name"><%= product.name %></p>
+            <p class="category"><%= product.category %></p>
+            <p class="description"><%= product.description %></p>
+            <p class="product-price">$<%= product.price %></p>
+            <form action="/admin/delete-product" method="post" class="button-container">
+                <input type="hidden" value="<%= product._id %>" name="productId">
+                <a href="/admin/edit-product/<%= encodeURIComponent(product._id) %>" class="edit-button">Edit</a>
+                <button type="submit" class="delete-button">Delete</button>
+            </form>
+        </article>
     </main>
-    <!-- EJS Syntax -->
 </body>
 </html>
