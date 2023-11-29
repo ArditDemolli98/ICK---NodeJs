@@ -3,7 +3,7 @@ module.exports = {
         const loggedIn = req.get("Cookie").split("=")[1];
         res.render("login", {
             title: "Login",
-            isAuthenticated: req.loggedIn
+            isAuthenticated: loggedIn
         });
     },
 
