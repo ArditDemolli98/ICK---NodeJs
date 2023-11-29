@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 
 const adminRoutes = require("./routes/adminRoutes");
 const mainRoutes = require("./routes/mainRoutes");
+const authRoutes = require("./routes/authRoutes");
 const User = require("./models/User");
 
 const PORT = 8000;
@@ -48,6 +49,8 @@ app.use((req, res, next) => {
 })
 
 app.use("/", mainRoutes)
+
+app.use("/", authRoutes);
 
 app.use("/admin", adminRoutes);
 
