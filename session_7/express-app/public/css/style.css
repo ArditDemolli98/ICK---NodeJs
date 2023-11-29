@@ -25,7 +25,7 @@ nav ul {
     height: 70px;
 }
 
-.left-nav {
+.left-nav, .right-nav {
     display: flex;
 }
 

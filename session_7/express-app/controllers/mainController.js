@@ -5,7 +5,8 @@ module.exports = {
         Product.find().sort({createdAt: -1})
         .then(result => {
             res.render("index", {title: "Home",
-                            products: result});
+                            products: result,
+                            isAuthenticated: req.loggedIn});
         })
         .catch(err => console.log(err))
     },
@@ -14,11 +15,11 @@ module.exports = {
         const prodId = req.params.id;
         Product.findById(prodId)
         .then(product => {
-            res.render("product-details", { title: "Product details", product})
+            res.render("product-details", { title: "Product details", product, isAuthenticated: req.loggedIn})
         })
     },
 
     getAboutView: (req, res)=>{
-        res.render("about", {title: "About"})
+        res.render("about", {title: "About", isAuthenticated: req.loggedIn})
     }
 }

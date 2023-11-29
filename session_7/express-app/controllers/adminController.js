@@ -6,7 +6,7 @@ module.exports = {
     },
 
     getAddProductView: (req, res)=>{
-        res.render("add-product", {title: "Add product"});
+        res.render("add-product", {title: "Add product", isAuthenticated: req.loggedIn});
     },
 
     createProduct: (req, res)=>{   
@@ -37,7 +37,7 @@ module.exports = {
         
         Product.findById(prodId)
         .then(product =>{
-            res.render("edit-product", {title: "Edit product", product})
+            res.render("edit-product", {title: "Edit product", product, isAuthenticated: req.loggedIn})
         })
         .catch(err => console.log(err))
     },

@@ -6,7 +6,10 @@
                 <li><a class="<%= title === "About" ? "active" : "" %>" href="/about">About</a></li>
             </div>
             <div class="right-nav">
+                <% if(isAuthenticated) { %>
                 <li><a class="<%= title === "Add product" ? "active" : "" %>" href="/admin/add-product">Add Product</a></li>
+                <% } %>
+                <li><a class="<%= title === "Login" ? "active" : "" %>" href="/login">Log in</a></li>
             </div>
         </ul>
     </nav>
