@@ -21,7 +21,8 @@ module.exports = {
             price: productPrice, 
             imageURL: productImageURL,
             category: productCategory,
-            description: productDescription
+            description: productDescription,
+            userId: req.user._id
         })
         product.save()
         .then(result =>{

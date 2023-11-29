@@ -2,7 +2,7 @@ const Product = require("../models/Product");
 
 module.exports = {
     getHomeView: (req, res)=>{
-        Product.find()
+        Product.find().sort({createdAt: -1})
         .then(result => {
             res.render("index", {title: "Home",
                             products: result});
