@@ -10,6 +10,7 @@ router.post("/product", adminController.createProduct);
 
 router.get("/edit-product/:id", adminController.getEditProductView)
 
+router.post("/edit-product", adminController.updateProduct);
 
 router.post("/delete-product", adminController.deleteProduct);
 

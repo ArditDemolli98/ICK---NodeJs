@@ -1,4 +1,4 @@
-const Product=require("../models/Product")
+const Product = require("../models/Product")
 module.exports = {
 
     getAdminView: (req, res)=>{
@@ -37,6 +37,28 @@ module.exports = {
         Product.findById(prodId)
         .then(product =>{
             res.render("edit-product", {title: "Edit product", product})
+        })
+        .catch(err => console.log(err))
+    },
+
+    updateProduct: (req, res) => {
+        const prodId = req.body.productId
+        const prodName = req.body.productName;
+        const prodPrice = req.body.productPrice;
+        const prodCategory = req.body.productCategory;
+        const prodDescription = req.body.productDescription;
+        const prodImageURL = req.body.productImageURL;
+        Product.findById(prodId)
+        .then(product => {
+            product.name = prodName;
+            product.price = prodPrice;
+            product.category = prodCategory;
+            product.description = prodDescription;
+            product.imageURL = prodImageURL
+            return product.save();
+        })
+        .then(result => {
+            res.redirect("/");
         })
         .catch(err => console.log(err))
     },
