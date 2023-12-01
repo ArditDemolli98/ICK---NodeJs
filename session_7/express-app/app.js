@@ -3,6 +3,8 @@ const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
 const bodyParser = require("body-parser");
+const session = require("express-session");
+const MongoDBStore = require('connect-mongodb-session')(session);
 
 const adminRoutes = require("./routes/adminRoutes");
 const mainRoutes = require("./routes/mainRoutes");
@@ -10,8 +12,14 @@ const authRoutes = require("./routes/authRoutes");
 const User = require("./models/User");
 
 const PORT = 8000;
+const DB_URI = "mongodb+srv://arditdemolli98:ardos@cluster0.lpzt4xk.mongodb.net/";
 
-mongoose.connect("mongodb+srv://arditdemolli98:ardos@cluster0.lpzt4xk.mongodb.net/")
+const store = new MongoDBStore({
+    uri: DB_URI,
+    collection: "sessions"
+})
+
+mongoose.connect(DB_URI)
 .then(result =>{
     console.log("Connected to the database");
     app.listen(PORT, (error) =>{
@@ -27,6 +35,12 @@ mongoose.connect("mongodb+srv://arditdemolli98:ardos@cluster0.lpzt4xk.mongodb.ne
 app.use(express.static(path.join(__dirname, "public")))
 app.use(bodyParser.urlencoded({extended: false}))
 app.set("view engine", "ejs");
+app.use(session({
+    secret: "nothing great ever came that easy",
+    resave: false,
+    saveUninitialized: false,
+    store: store
+}))
 
 app.use((req, res, next) => {
     User.findOne()

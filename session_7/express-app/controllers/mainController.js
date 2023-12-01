@@ -6,7 +6,7 @@ module.exports = {
         .then(result => {
             res.render("index", {title: "Home",
                             products: result,
-                            isAuthenticated: req.loggedIn});
+                            isAuthenticated: req.session.loggedIn});
         })
         .catch(err => console.log(err))
     },
@@ -15,11 +15,11 @@ module.exports = {
         const prodId = req.params.id;
         Product.findById(prodId)
         .then(product => {
-            res.render("product-details", { title: "Product details", product, isAuthenticated: req.loggedIn})
+            res.render("product-details", { title: "Product details", product, isAuthenticated: req.session.loggedIn})
         })
     },
 
     getAboutView: (req, res)=>{
-        res.render("about", {title: "About", isAuthenticated: req.loggedIn})
+        res.render("about", {title: "About", isAuthenticated: req.session.loggedIn})
     }
 }
