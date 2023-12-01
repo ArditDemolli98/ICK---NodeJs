@@ -5,6 +5,9 @@
 </head>
 <body>
     <%- include("./partials/navigation.ejs")  %>
+    <div>
+        <%= errorMessage %>
+    </div>
     <div class="form-container">
         <form class="login-form" action="/signup" method="post">
             <div class="label-input">

@@ -22,7 +22,7 @@ module.exports = {
             imageURL: productImageURL,
             category: productCategory,
             description: productDescription,
-            userId: req.user._id
+            userId: req.session.user._id
         })
         product.save()
         .then(result =>{

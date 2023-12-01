@@ -5,11 +5,12 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const MongoDBStore = require('connect-mongodb-session')(session);
+const flash = require("connect-flash");
 
 const adminRoutes = require("./routes/adminRoutes");
 const mainRoutes = require("./routes/mainRoutes");
 const authRoutes = require("./routes/authRoutes");
-const User = require("./models/User");
+
 
 const PORT = 8000;
 const DB_URI = "mongodb+srv://arditdemolli98:ardos@cluster0.lpzt4xk.mongodb.net/";
@@ -41,26 +42,7 @@ app.use(session({
     saveUninitialized: false,
     store: store
 }))
-
-app.use((req, res, next) => {
-    User.findOne()
-    .then(user =>{
-        if(!user){
-            const user = new User({
-                username: "ardit",
-                email: "ardos@ardos.com",
-                password: "ardos"
-            })
-            user.save()
-            .then(result => {
-                req.user = user;
-                next();
-            })
-        }
-        req.user = user;
-        next();
-    })
-})
+app.use(flash());
 
 app.use("/", mainRoutes)
 

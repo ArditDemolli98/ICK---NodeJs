@@ -13,11 +13,11 @@
             <p class="description"><%= product.description %></p>
             <p class="product-price">$<%= product.price %></p>
             <% if(isAuthenticated) { %>
-            <form action="/admin/delete-product" method="post" class="button-container">
-                <input type="hidden" value="<%= product._id %>" name="productId">
-                <a href="/admin/edit-product/<%= encodeURIComponent(product._id) %>" class="edit-button">Edit</a>
-                <button type="submit" class="delete-button">Delete</button>
-            </form>
+                <form action="/admin/delete-product" method="post" class="button-container">
+                    <input type="hidden" value="<%= product._id %>" name="productId">
+                    <a href="/admin/edit-product/<%= encodeURIComponent(product._id) %>" class="edit-button">Edit</a>
+                    <button type="submit" class="delete-button">Delete</button>
+                </form>
             <% } %>
         </article>
     </main>

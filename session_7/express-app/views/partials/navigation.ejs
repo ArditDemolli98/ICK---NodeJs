@@ -7,12 +7,14 @@
             </div>
             <div class="right-nav">
                 <% if(isAuthenticated) { %>
-                <li><a class="<%= title === "Add product" ? "active" : "" %>" href="/admin/add-product">Add Product</a></li>
-                <% } %>
-                <li><a class="<%= title === "Login" ? "active" : "" %>" href="/login">Log in</a></li>
-                <form action="/logout" method="post" class="logout-form">
-                    <button class="nav-link">Log out</button>
-                </form>
+                    <li><a class="<%= title === "Add product" ? "active" : "" %>" href="/admin/add-product">Add Product</a></li>
+                    <form action="/logout" method="post" class="logout-form">
+                        <button class="nav-link">Log out</button>
+                    </form>
+                <% } else {%>
+                    <li><a class="<%= title === "Login" ? "active" : "" %>" href="/login">Log in</a></li>
+                    <li><a class="<%= title === "Sign up" ? "active" : "" %>" href="/signup">Sign up</a></li>
+                <% } %>   
             </div>
         </ul>
     </nav>
