@@ -27,6 +27,7 @@ nav ul {
 
 .left-nav, .right-nav {
     display: flex;
+    align-items: center;
 }
 
 li {
@@ -385,4 +386,25 @@ h1 {
 .login-form-btn:hover {
     background-color: #0056b3;
     border-color: #0056b3;
+}
+.logout-form {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.logout-form button {
+    font-size: 1.2rem;
+    background-color: #444;
+    border: 0.5px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: rgb(243, 86, 55);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.logout-form button:hover {
+    background-color: #333;
+    color: rgb(255, 255, 255);
 }
