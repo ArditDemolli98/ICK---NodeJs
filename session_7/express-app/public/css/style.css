@@ -408,3 +408,14 @@ h1 {
     background-color: #333;
     color: rgb(255, 255, 255);
 }
+.error-message {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #dc3545; /* Red background color, you can change it to your preference */
+    color: #fff; /* White text color, change it to a suitable color for better contrast */
+    border: 1px solid #dc3545; /* Border color matching the background color */
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1rem;
+}

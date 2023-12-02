@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 
 module.exports = {
     getLogin: (req, res) => {
+        
         res.render("login", {
             title: "Login",
             isAuthenticated: req.session.loggedIn,
@@ -13,7 +14,7 @@ module.exports = {
     getSignup: (req, res) =>{
         res.render("signup", {
             title: "Sign up",
-             isAuthenticated: req.session.loggedIn, errorMessage: req.flash("err")
+             isAuthenticated: req.session.loggedIn, errorMessage: req.flash("error")
             })
     },
 
@@ -55,7 +56,7 @@ module.exports = {
         User.findOne({email: email})
         .then(userDoc => {
             if(userDoc){
-                req.flash("err", "User already exists")
+                req.flash("error", "User already exists")
                 res.redirect("/signup");
             } else {
                 bcrypt.hash(password, 10)
