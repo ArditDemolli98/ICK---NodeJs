@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 module.exports = {
     getLogin: (req, res) => {
         
-        res.render("login", {
+        res.render("auth/login", {
             title: "Login",
             isAuthenticated: req.session.loggedIn,
             errorMessage: req.flash("error")
@@ -12,7 +12,7 @@ module.exports = {
     },
 
     getSignup: (req, res) =>{
-        res.render("signup", {
+        res.render("auth/signup", {
             title: "Sign up",
              isAuthenticated: req.session.loggedIn, errorMessage: req.flash("error")
             })

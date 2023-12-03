@@ -4,7 +4,7 @@ module.exports = {
     getHomeView: (req, res)=>{
         Product.find().sort({createdAt: -1})
         .then(result => {
-            res.render("index", {title: "Home",
+            res.render("main/index", {title: "Home",
                             products: result,
                             isAuthenticated: req.session.loggedIn});
         })
@@ -15,11 +15,11 @@ module.exports = {
         const prodId = req.params.id;
         Product.findById(prodId)
         .then(product => {
-            res.render("product-details", { title: "Product details", product, isAuthenticated: req.session.loggedIn})
+            res.render("main/product-details", { title: "Product details", product, isAuthenticated: req.session.loggedIn})
         })
     },
 
     getAboutView: (req, res)=>{
-        res.render("about", {title: "About", isAuthenticated: req.session.loggedIn})
+        res.render("main/about", {title: "About", isAuthenticated: req.session.loggedIn})
     }
 }
