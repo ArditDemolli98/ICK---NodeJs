@@ -11,22 +11,22 @@
     </div>
     <% } %>
     <div class="form-container">
-        <form class="login-form" action="/signup" method="post">
+        <form class="login-form" action="/signup" method="post" novalidate>
             <div class="label-input">
                 <label for="username">Username:</label>
-                <input type="text" name="username" id="username" required>
+                <input type="text" name="username" id="username" value="<%= oldInput.username %>" required>
             </div>
             <div class="label-input">
                 <label for="email">Email:</label>
-                <input type="email" name="email" id="email" required>
+                <input type="email" name="email" id="email" value="<%= oldInput.email %>" required>
             </div>
             <div class="label-input">
                 <label for="password">Password:</label>
-                <input type="password" name="password" id="password" required>
+                <input type="password" name="password" id="password" value="<%= oldInput.password %>" required>
             </div>
             <div class="label-input">
                 <label for="confirmPassword">Confirm Password:</label>
-                <input type="password" name="confirmPassword" id="confirmPassword" required>
+                <input type="password" name="confirmPassword" id="confirmPassword" value="<%= oldInput.confirmPassword %>" required>
             </div>
             <button type="submit" class="login-form-btn">Sign up</button>
         </form>

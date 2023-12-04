@@ -1,9 +1,9 @@
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
+const {validationResult} = require("express-validator");
 
 module.exports = {
-    getLogin: (req, res) => {
-        
+    getLogin: (req, res) => { 
         res.render("auth/login", {
             title: "Login",
             isAuthenticated: req.session.loggedIn,
@@ -14,7 +14,14 @@ module.exports = {
     getSignup: (req, res) =>{
         res.render("auth/signup", {
             title: "Sign up",
-            isAuthenticated: req.session.loggedIn, errorMessage: req.flash("error")
+            isAuthenticated: req.session.loggedIn,
+            errorMessage: req.flash("error"),
+            oldInput: {
+                username: "",
+                email: "",
+                password: "",
+                confirmPassword: ""
+            }
             })
     },
 
@@ -56,8 +63,24 @@ module.exports = {
         const password = req.body.password;
         const confirmPassword = req.body.confirmPassword;
 
+        const errors = validationResult(req);
+
+        if(!errors.isEmpty()){
+            return res.status(422).render("auth/signup", {
+                title: "Sign up",
+                isAuthenticated: req.session.loggedIn,
+                errorMessage: errors.array()[0].msg,
+                oldInput: {
+                    username: username,
+                    email: email,
+                    password: password,
+                    confirmPassword: confirmPassword
+                }
+                })
+        } 
         User.findOne({email: email})
         .then(userDoc => {
+
             if(userDoc){
                 req.flash("error", "User already exists")
                 res.redirect("/signup");
@@ -76,6 +99,6 @@ module.exports = {
                 }) 
             }
         })
-        .catch(err => console.log(err))    
+        .catch(err => console.log(err))   
     }
 }

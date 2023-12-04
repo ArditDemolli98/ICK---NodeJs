@@ -28,6 +28,10 @@ module.exports = {
         const productCategory= req.body.productCategory;
         const productDescription= req.body.productDescription;
 
+        //Object destructuring
+
+        //const {productName, productPrice, productImageURL, productCategory, productDescription} = req.body;
+
         const product = new Product({
             name: productName,
             price: productPrice, 
