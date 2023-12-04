@@ -9,6 +9,18 @@ module.exports = {
         res.render("admin/add-product", {title: "Add product", isAuthenticated: req.session.loggedIn});
     },
 
+    getMyProductsView: (req, res) => {
+        Product.find({userId: req.session.user._id}).sort({createdAt: -1})
+        .then(result => {
+            res.render("admin/my-products", {
+                title: "My products",
+                products: result,
+                isAuthenticated: req.session.loggedIn
+            });
+        })
+        .catch(err => console.log(err))
+    },
+
     createProduct: (req, res)=>{   
         const productName = req.body.productName;
         const productPrice = req.body.productPrice;
@@ -41,8 +53,7 @@ module.exports = {
             res.render("admin/edit-product", {title: "Edit product", product, isAuthenticated: req.session.loggedIn})
         })
         .catch(err => console.log(err))
-    },
-
+    }, 
     updateProduct: (req, res) => {
         const prodId = req.body.productId
         const prodName = req.body.productName;
@@ -75,5 +86,4 @@ module.exports = {
         })
         .catch(err => console.log(err))
     }
-
 }

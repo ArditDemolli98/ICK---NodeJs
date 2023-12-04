@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../partials/head.ejs") %>
+</head>
+<body>
+    <%- include("../partials/navigation.ejs") %>
+    <main>
+
+        <section class="products-list">
+            <% for(let i = 0; i < products.length; i++) { %>
+                <article class="product">
+                    <img src="<%= products[i].imageURL %>" alt="<%= products[i].name %>">
+                    <p class="product-name"><%= products[i].name %></p>
+                    <p class="category"><%= products[i].category %></p>
+                    <p class="username">By: <i><%= products[i].username %></i></p>
+                    <p class="product-price">$<%= products[i].price %></p>
+                    <a href="/product-details/<%= products[i]._id %>">See details</a>
+                </article>
+            <% } %>
+        </section>
+
+    </main>
+    <!-- EJS Syntax -->
+</body>
+</html>

@@ -7,6 +7,7 @@
             </div>
             <div class="right-nav">
                 <% if(isAuthenticated) { %>
+                    <li><a class="<%= title === "My products" ? "active" : "" %>" href="/admin/my-products">My Products</a></li>
                     <li><a class="<%= title === "Add product" ? "active" : "" %>" href="/admin/add-product">Add Product</a></li>
                     <form action="/logout" method="post" class="logout-form">
                         <button class="nav-link">Log out</button>

@@ -7,6 +7,8 @@ router.get("/", adminController.getAdminView);
 
 router.get("/add-product", isAuth, adminController.getAddProductView);
 
+router.get("/my-products", isAuth, adminController.getMyProductsView);
+
 router.post("/product", adminController.createProduct);
 
 router.get("/edit-product/:id", isAuth, adminController.getEditProductView)
