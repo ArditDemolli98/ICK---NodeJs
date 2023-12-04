@@ -14,7 +14,7 @@ module.exports = {
     getSignup: (req, res) =>{
         res.render("auth/signup", {
             title: "Sign up",
-             isAuthenticated: req.session.loggedIn, errorMessage: req.flash("error")
+            isAuthenticated: req.session.loggedIn, errorMessage: req.flash("error")
             })
     },
 
@@ -28,8 +28,11 @@ module.exports = {
                 req.flash("error", "Invalid username or password");
                 res.redirect("/login");
             } else {
-                bcrypt.compare(user.password, password)
-                .then(result => {
+                bcrypt.compare(password, user.password)
+                .then(doMatch => {
+                    if(!doMatch){
+                        return res.redirect("/login");
+                    }
                     req.session.loggedIn = true;
                     req.session.user = user;
                     res.redirect("/");
