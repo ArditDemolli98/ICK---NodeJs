@@ -13,6 +13,7 @@
                     <img src="<%= products[i].imageURL %>" alt="<%= products[i].name %>">
                     <p class="product-name"><%= products[i].name %></p>
                     <p class="category"><%= products[i].category %></p>
+                    <p class="username">By: <i><%= products[i].username %></i></p>
                     <p class="product-price">$<%= products[i].price %></p>
                     <a href="/product-details/<%= products[i]._id %>">See details</a>
                 </article>

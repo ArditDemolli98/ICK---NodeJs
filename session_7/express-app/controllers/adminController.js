@@ -22,7 +22,8 @@ module.exports = {
             imageURL: productImageURL,
             category: productCategory,
             description: productDescription,
-            userId: req.session.user._id
+            userId: req.session.user._id,
+            username: req.session.user.username
         })
         product.save()
         .then(result =>{
@@ -51,12 +52,14 @@ module.exports = {
         const prodImageURL = req.body.productImageURL;
         Product.findById(prodId)
         .then(product => {
-            product.name = prodName;
-            product.price = prodPrice;
-            product.category = prodCategory;
-            product.description = prodDescription;
-            product.imageURL = prodImageURL
-            return product.save();
+            if(req.session.user._id.toString() == product.userId.toString()){
+                product.name = prodName;
+                product.price = prodPrice;
+                product.category = prodCategory;
+                product.description = prodDescription;
+                product.imageURL = prodImageURL
+                return product.save();
+            }
         })
         .then(result => {
             res.redirect("/");
@@ -66,7 +69,7 @@ module.exports = {
 
     deleteProduct: (req, res) =>{
         const prodId = req.body.productId;
-        Product.findByIdAndDelete(prodId)
+        Product.findOneAndDelete({_id: prodId, userId: req.session.user._id})
         .then(result => {
             res.redirect("/")
         })

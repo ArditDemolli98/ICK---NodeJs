@@ -1,14 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const adminController = require("../controllers/adminController");
+const isAuth = require("../middlewares/is-auth");
 
 router.get("/", adminController.getAdminView);
 
-router.get("/add-product", adminController.getAddProductView);
+router.get("/add-product", isAuth, adminController.getAddProductView);
 
 router.post("/product", adminController.createProduct);
 
-router.get("/edit-product/:id", adminController.getEditProductView)
+router.get("/edit-product/:id", isAuth, adminController.getEditProductView)
 
 router.post("/edit-product", adminController.updateProduct);
 
