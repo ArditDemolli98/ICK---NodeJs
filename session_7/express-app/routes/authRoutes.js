@@ -22,8 +22,12 @@ body("password")
 .withMessage("The password must contain 8 to 16 characters!"),
 
 body("confirmPassword")
-.equals(body("password"))
-.withMessage("Passwords must match!"),
+.custom((value, {req}) =>{
+    if(req.body.confirmPassword !== req.body.password) {
+        throw new Error("Passwords must match!");
+    }
+    return true;
+}),
 
 body("username")
 .isAlphanumeric()
