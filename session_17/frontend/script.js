@@ -14,3 +14,19 @@ getBtn.addEventListener("click", ()=>{
     })
     .catch(err => console.log(err));
 })
+
+postBtn.addEventListener("click", ()=>{
+    fetch("http://localhost:8080/feed/createPost",{
+        method: "POST",
+        body: JSON.stringify({
+            title: "New post from frontend JS",
+            content: "The content of the new post from frontend JS"
+        }),
+        headers: {"Content-Type": "application/json"}
+    })
+    .then(res => res.json())
+    .then(res =>{
+        console.log(res);
+    })
+    .catch(err => console.log(err));
+})
