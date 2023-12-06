@@ -11,6 +11,7 @@
             <p class="product-name"><%= product.name %></p>
             <p class="category"><%= product.category %></p>
             <p class="description"><%= product.description %></p>
+            <p class="product-phone">Contact: <%= product.phone %></p>
             <p class="product-price">$<%= product.price %></p>
             <% if(isAuthenticated) { %>
                 <form action="/admin/delete-product" method="post" class="button-container">

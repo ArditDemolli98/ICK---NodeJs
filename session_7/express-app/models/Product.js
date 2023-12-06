@@ -29,7 +29,13 @@ const productSchema = new Schema({
     },
     username: {
         type: String,
-        ref: "User"
+        ref: "User",
+        required: true
+    },
+    phone: {
+        type: String,
+        ref: "User",
+        required: true
     }
 }, {timestamps: true});
 

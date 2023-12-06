@@ -39,7 +39,8 @@ module.exports = {
             category: productCategory,
             description: productDescription,
             userId: req.session.user._id,
-            username: req.session.user.username
+            username: req.session.user.username,
+            phone: req.session.user.phone
         })
         product.save()
         .then(result =>{

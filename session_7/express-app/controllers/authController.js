@@ -19,6 +19,7 @@ module.exports = {
             oldInput: {
                 username: "",
                 email: "",
+                phone: "",
                 password: "",
                 confirmPassword: ""
             }
@@ -60,6 +61,7 @@ module.exports = {
     postSignup: (req, res) => {
         const username = req.body.username;
         const email = req.body.email;
+        const phone = req.body.phone;
         const password = req.body.password;
         const confirmPassword = req.body.confirmPassword;
 
@@ -73,6 +75,7 @@ module.exports = {
                 oldInput: {
                     username: username,
                     email: email,
+                    phone: phone,
                     password: password,
                     confirmPassword: confirmPassword
                 }
@@ -80,7 +83,6 @@ module.exports = {
         } 
         User.findOne({email: email})
         .then(userDoc => {
-
             if(userDoc){
                 req.flash("error", "User already exists")
                 res.redirect("/signup");
@@ -90,6 +92,7 @@ module.exports = {
                     const user = new User({
                     username: username,
                     email: email,
+                    phone: phone,
                     password: hashedPassword
                 })
                 return user.save()
