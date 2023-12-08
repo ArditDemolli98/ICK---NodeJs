@@ -10,7 +10,7 @@ router.get("/posts", feedController.getPosts);
 router.post("/createPost", feedController.createPost);
 
 
-// router.put()
+router.put("/updatePost/:id", feedController.updatePost)
 
 
 // router.delete()

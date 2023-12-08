@@ -5,7 +5,7 @@ const mongoose=require ("mongoose")
 const feedRoutes = require("./routes/feedRoutes");
 
 app.use(bodyParser.json());
-mongoose.connect("mongodb+srv://arditdemolli98:ardos@cluster0.lpzt4xk.mongodb.net/")
+mongoose.connect("mongodb+srv://arditdemolli98:ardos@cluster0.wcm3fqw.mongodb.net/")
 .then(result =>{
     console.log("Connected to the database");
     app.listen(8000, (error) =>{

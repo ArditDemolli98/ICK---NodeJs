@@ -1,10 +1,13 @@
-const Post=require("../models/Post")
+const Post = require("../models/Post")
 module.exports = {
     getPosts: (req, res) => {
-        res.status(200).json({
-            "title": "Our first post",
-            "content": "The content of our first post"
-        });
+        Post.find()
+        .then(posts => {
+            res.status(200).json(posts);
+        })
+        .catch(err=>{
+            res.status(500).json({message: err.message});
+        })   
     },
 
     createPost: (req, res) => {
@@ -25,7 +28,34 @@ module.exports = {
             })
         })
         .catch(err=>{
-            console.log(err)
+            res.status(500).json({message: err.message});
         }) 
+    },
+
+    updatePost: (req, res) =>{
+        const postId = req.params.id;
+        const title = req.body.title;
+        const content = req.body.content;
+
+        Post.findById(postId)
+        .then(post => {
+            if(!post) {
+                res.status(404).json({
+                    message: "This post could not be found!"
+                })
+            }
+            post.title = title;
+            post.content = content;
+            return post.save()
+            .then(result => {
+                res.status(200).json({
+                    message: "Post updated successfully",
+                    post: result
+                })
+            })
+        })
+        .catch(err=>{
+            res.status(500).json({message: err.message});
+        })
     }
 }
