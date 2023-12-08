@@ -1,24 +1,23 @@
 const Post = require("../models/Post")
 module.exports = {
-    getPosts: (req, res) => {
-        Post.find()
-        .then(posts => {
+    getPosts: async(req, res) => {
+        try {
+            const posts = await Post.find()
             res.status(200).json(posts);
-        })
-        .catch(err=>{
-            res.status(500).json({message: err.message});
-        })   
+        } catch (error) {
+            res.status(500).json({message: error.message});
+        } 
     },
 
-    createPost: (req, res) => {
-        const title = req.body.title;
-        const content = req.body.content;
-        const post = new Post({
-            title:title, 
-            content:content
-        })
-        post.save()
-        .then(result=>{
+    createPost: async(req, res) => {
+        try {
+            const title = req.body.title;
+            const content = req.body.content;
+            const post = new Post({
+                title:title, 
+                content:content
+            })
+            await post.save();
             res.status(201).json({
                 message: "Post created successfully",
                 post: {
@@ -26,10 +25,9 @@ module.exports = {
                     content: content
                 }
             })
-        })
-        .catch(err=>{
-            res.status(500).json({message: err.message});
-        }) 
+        } catch (error) {
+            res.status(500).json({message: error.message});
+        }
     },
 
     getPostById: (req, res) =>{
