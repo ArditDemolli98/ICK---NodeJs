@@ -1,3 +1,4 @@
+const Post=require("../models/Post")
 module.exports = {
     getPosts: (req, res) => {
         res.status(200).json({
@@ -9,14 +10,22 @@ module.exports = {
     createPost: (req, res) => {
         const title = req.body.title;
         const content = req.body.content;
-
-        // Po i ruajme ne databaze
-        res.status(201).json({
-            message: "Post created successfully",
-            post: {
-                title: title,
-                content: content
-            }
+        const post = new Post({
+            title:title, 
+            content:content
         })
+        post.save()
+        .then(result=>{
+            res.status(201).json({
+                message: "Post created successfully",
+                post: {
+                    title: title,
+                    content: content
+                }
+            })
+        })
+        .catch(err=>{
+            console.log(err)
+        }) 
     }
 }
